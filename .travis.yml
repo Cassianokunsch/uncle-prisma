@@ -6,6 +6,7 @@ before_script:
   - docker build -t registry.heroku.com/uncle-prisma-server/web .
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.heroku.com;
   - docker push registry.heroku.com/uncle-prisma-server/web;
+  - heroku auth:token
   - heroku container:release web -a uncle-prisma-server
 
 script:
