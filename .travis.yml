@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_script:
-  - docker build -t registry.heroku.com/"$APP_NAME"/web .
+  - docker build -t registry.heroku.com/$APP_NAME/web .
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.heroku.com;
     docker push registry.heroku.com/"$APP_NAME"/web;
